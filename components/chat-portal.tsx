@@ -254,6 +254,11 @@ export function ChatPortal() {
 
   return (
     <div className="portal">
+      <nav className="classic-entry" aria-label="其他门户">
+        <a href="https://classic.samuelcheston.com">
+          Classic Portal <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="参考问答门户首页">
           <PortalMark className="brand-mark" />

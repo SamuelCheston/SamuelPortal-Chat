@@ -79,6 +79,28 @@ button:disabled { cursor: not-allowed; opacity: 0.48; }
   height: 100dvh;
   overflow: hidden;
 }
+.classic-entry {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  min-height: 36px;
+  padding: 3px clamp(18px, 4vw, 48px) 4px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+}
+.classic-entry a {
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 7px;
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.classic-entry a:hover { color: var(--accent-strong); background: var(--accent-soft); }
 .site-header {
   flex: 0 0 auto;
   min-height: 76px;
