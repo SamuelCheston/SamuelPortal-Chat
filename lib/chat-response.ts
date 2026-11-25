@@ -1,14 +1,20 @@
 import { createUIMessageStream, createUIMessageStreamResponse, streamText, toUIMessageStream, convertToModelMessages } from "ai";
+import { createTranslator, type Locale } from "next-intl";
 import { getModel, isMockModelEnabled } from "@/lib/model";
 import { buildReferenceContext, SYSTEM_PROMPT } from "@/lib/prompt";
 import type { ChatUIMessage, ReferenceChunk, Source } from "@/lib/types";
 
-function mockAnswer(question: string, sources: Source[]): string {
+function mockAnswer(question: string, sources: Source[], t: ReturnType<typeof createTranslator>): string {
   if (sources.length === 0) {
-    return "现有资料中没有支持该结论的内容。可以换一种问法，或先补充相关公开资料。";
+    return t("noEvidence");
   }
   const first = sources[0];
-  return `这是本地 Mock 回答，不会调用外部模型。\n\n检索到与“${question.slice(0, 80)}”相关的资料《${first.title}》，片段位于“${first.locator}”。 [${first.id}]\n\n配置 \`OPENAI_API_KEY\` 后将改为基于 reference 的真实回答。`;
+  return t("answer", {
+    question: question.slice(0, 80),
+    title: first.title,
+    locator: first.locator,
+    source: first.id,
+  });
 }
 
 function waitForMockChunk(signal: AbortSignal): Promise<boolean> {
@@ -34,14 +40,20 @@ export async function createChatResponse({
   question,
   chunks,
   sources,
+  locale,
   signal,
 }: {
   messages: ChatUIMessage[];
   question: string;
   chunks: ReferenceChunk[];
   sources: Source[];
+  locale: Locale;
   signal: AbortSignal;
 }): Promise<Response> {
+  const catalog = (await import(`@/messages/${locale}.json`)).default;
+  const tMock = createTranslator({ locale, messages: catalog, namespace: "Mock" });
+  const tServer = createTranslator({ locale, messages: catalog, namespace: "Server" });
+  const generationFailed = tServer("generationFailed");
   const mock = isMockModelEnabled();
   const model = mock || sources.length === 0 ? undefined : getModel();
   const history = messages.slice(0, -1);
@@ -64,12 +76,12 @@ export async function createChatResponse({
 
   const stream = createUIMessageStream<ChatUIMessage>({
     originalMessages: messages,
-    onError: () => "生成失败，请稍后重试。",
+    onError: () => generationFailed,
     execute: async ({ writer }) => {
       writer.write({ type: "start" });
       writer.write({ type: "data-sources", id: "sources", data: sources });
       if (!result) {
-        const text = mockAnswer(question, sources);
+        const text = mockAnswer(question, sources, tMock);
         const id = "answer";
         writer.write({ type: "text-start", id });
         if (mock && sources.length > 0) {
@@ -92,7 +104,7 @@ export async function createChatResponse({
           stream: result.stream,
           sendStart: false,
           sendFinish: true,
-          onError: () => "生成失败，请稍后重试。",
+          onError: () => generationFailed,
         }),
       );
     },

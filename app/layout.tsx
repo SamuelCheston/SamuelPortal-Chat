@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { AppThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "参考问答门户",
-  description: "基于公开 reference 的 AI 问答门户，回答附可核查来源。",
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("Metadata");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    robots: { index: true, follow: true },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -17,11 +23,16 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body>
-        <AppThemeProvider>{children}</AppThemeProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <AppThemeProvider>{children}</AppThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

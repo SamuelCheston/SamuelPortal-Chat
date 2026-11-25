@@ -3,6 +3,7 @@
 import { Box, Button, Link } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { useTranslations } from "next-intl";
 import type { Components } from "react-markdown";
 import type { Source } from "@/lib/types";
 
@@ -26,10 +27,11 @@ export function MarkdownMessage({
   sources: Source[];
   onOpenSource: (source: Source) => void;
 }) {
+  const t = useTranslations("Markdown");
   const components: Components = {
     img: ({ alt }) => alt ? (
       <Box component="span" sx={{ display: "block", px: 1.5, py: 1.5, border: 1, borderStyle: "dashed", borderColor: "divider", borderRadius: 3, color: "text.secondary" }}>
-        图片：{alt}
+        {t("image", { alt })}
       </Box>
     ) : null,
     a: ({ href, children, title }) => {

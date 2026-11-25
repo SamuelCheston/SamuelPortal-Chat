@@ -1,0 +1,157 @@
+{
+  "Metadata": {
+    "title": "Reference Q&A Portal",
+    "description": "An AI Q&A portal grounded in public references, with answers linked to verifiable sources."
+  },
+  "Nav": {
+    "otherPortals": "Other portals"
+  },
+  "Header": {
+    "home": "Reference Q&A Portal home",
+    "brand": "Reference Q&A",
+    "brandCaption": "PERSONAL REFERENCE PORTAL"
+  },
+  "Health": {
+    "checking": "Checking service",
+    "mock": "Mock mode",
+    "live": "Model connected",
+    "unconfigured": "Model not configured"
+  },
+  "Chat": {
+    "new": "New chat",
+    "confirmClear": "Confirm clear",
+    "newAria": "Start a new chat",
+    "confirmClearAria": "Confirm clearing and start a new chat"
+  },
+  "Privacy": {
+    "open": "View privacy details",
+    "tooltip": "View privacy details"
+  },
+  "Main": {
+    "history": "Conversation history",
+    "welcome": "Reference assistant welcome"
+  },
+  "Loading": {
+    "preparing": "Preparing your reference assistant…"
+  },
+  "Welcome": {
+    "eyebrow": "Your public-reference AI assistant",
+    "title": "What would you like to explore?",
+    "description": "Ask questions about public references. I’ll organize the answers and include evidence you can verify."
+  },
+  "Suggestions": {
+    "label": "Suggested questions",
+    "library": {
+      "title": "Explore the reference library",
+      "description": "Learn what the answers are based on and what the library covers",
+      "prompt": "What references does this portal use to answer questions, and which topics do they cover?"
+    },
+    "topic": {
+      "title": "Explore a topic",
+      "description": "Organize key information from public references",
+      "prompt": "Summarize the main themes and key points in these public references, with citations."
+    },
+    "perspectives": {
+      "title": "Compare perspectives",
+      "description": "Identify similarities and differences between viewpoints",
+      "prompt": "What different viewpoints appear in the references? Compare their similarities and differences, and cite sources for key conclusions."
+    },
+    "sources": {
+      "title": "Check answer sources",
+      "description": "Learn how citations lead back to the original text",
+      "prompt": "How are sources cited in answers, and how can I verify an answer and its evidence?"
+    }
+  },
+  "Service": {
+    "label": "Service details",
+    "sources": "Answers include sources",
+    "browserHistory": "History stays in this browser",
+    "publicLibrary": "Public reference library",
+    "referenceCount": "{count, plural, one {# public reference} other {# public references}}"
+  },
+  "Messages": {
+    "content": "Conversation",
+    "current": "Current conversation",
+    "questionCount": "{count, plural, one {# question} other {# questions}}",
+    "retryDivider": "Answering the previous question again; the old answer is preserved",
+    "userQuestion": "Your question",
+    "assistantAnswer": "Assistant answer",
+    "you": "You",
+    "assistant": "Reference assistant",
+    "thinking": "Thinking",
+    "incomplete": "Content may be incomplete",
+    "actions": "Answer actions",
+    "sourceCount": "{count, plural, one {# source} other {# sources}}",
+    "copied": "Copied",
+    "copy": "Copy",
+    "retry": "Regenerate",
+    "retrieving": "Searching references…",
+    "generating": "Generating answer…",
+    "jump": "Jump to latest"
+  },
+  "Composer": {
+    "label": "Message input",
+    "offline": "You’re offline. Reconnect before sending or retrying.",
+    "errorRetry": "Retry",
+    "dismissError": "Dismiss error",
+    "generationFailed": "The answer could not be generated. Please try again later.",
+    "storageWarning": "Browser storage is unavailable or full. This conversation still works, but it may be lost after a refresh.",
+    "placeholder": "Message the reference assistant…",
+    "inputLabel": "Ask about public references",
+    "publicReferences": "Public references",
+    "stop": "Stop generating",
+    "stopAnnouncement": "Generation stopped. The content shown may be incomplete.",
+    "send": "Send question",
+    "disclaimer": "AI can make mistakes. Verify important information and sources.",
+    "keyboardHint": "Enter to send · Shift + Enter for a new line"
+  },
+  "Announcement": {
+    "retrieving": "Searching public references and generating an answer.",
+    "sendFailed": "Could not send. Check your connection and try again.",
+    "completed": "Answer complete. You can view its sources or ask another question.",
+    "failed": "The answer failed. Your current content is preserved; you can retry.",
+    "retrying": "Regenerating the answer; the previous content is preserved.",
+    "retryFailed": "Could not send the retry. Please try again later.",
+    "copied": "Answer copied to the clipboard.",
+    "copyFailed": "Could not copy. Select the answer text manually.",
+    "cleared": "The conversation in this browser has been cleared."
+  },
+  "Markdown": {
+    "image": "Image: {alt}"
+  },
+  "Sources": {
+    "eyebrow": "REFERENCE CHECK",
+    "title": "Answer evidence",
+    "close": "Close sources",
+    "description": "These are the reference excerpts retrieved for this answer. Check the original text; a citation does not guarantee that a conclusion is correct.",
+    "locator": "Location: {locator}",
+    "open": "Open original reference"
+  },
+  "PrivacyDialog": {
+    "eyebrow": "PRIVACY",
+    "title": "Privacy and reference boundaries",
+    "close": "Close privacy details",
+    "history": "Conversation history is stored only in this browser and can be cleared from the page.",
+    "model": "New questions and necessary context are sent to the server and then to the configured model service.",
+    "sensitive": "Do not enter sensitive information such as passwords, ID numbers, or contact details.",
+    "references": "Answers are grounded in public references. When evidence is insufficient, the assistant should say so rather than guess.",
+    "classicPortal": "Return to Classic Portal"
+  },
+  "Server": {
+    "tooManyRequests": "Too many requests. Please try again later.",
+    "busy": "The service is busy. Please try again later.",
+    "bodyTooLarge": "Your input is too long. Please shorten it and try again.",
+    "emptyBody": "The request body is empty.",
+    "invalidJson": "The request body is not valid JSON.",
+    "invalidMessages": "The message format is invalid.",
+    "invalidQuestion": "Enter a question between 1 and 4,000 characters.",
+    "referencesUnavailable": "References are temporarily unavailable. Please try again later.",
+    "modelUnconfigured": "The model is not configured. Please contact the portal owner.",
+    "timeout": "Generation timed out. Please try again later.",
+    "generationFailed": "Generation failed. Please try again later."
+  },
+  "Mock": {
+    "noEvidence": "The available references contain no support for this conclusion. Try rephrasing the question or adding relevant public references first.",
+    "answer": "This is a local mock answer; no external model was called.\n\nI found a reference related to “{question}”: {title}. The relevant excerpt is at “{locator}”. [{source}]\n\nAfter OPENAI_API_KEY is configured, answers will be generated from the references by the real model."
+  }
+}
