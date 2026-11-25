@@ -37,8 +37,12 @@ describe("i18n configuration", () => {
     const english = createTranslator({ locale: "en", messages: en });
     const chinese = createTranslator({ locale: "zh-CN", messages: zh });
 
-    expect(english("Welcome.title")).toBe("What would you like to explore?");
-    expect(chinese("Welcome.title")).toBe("今天想了解什么？");
+    expect(english("Welcome.title")).toBe("No page-hopping. Just ask.");
+    expect(chinese("Welcome.title")).toBe("不必逐页浏览，直接问我");
+    expect(english("Header.brand")).toBe("Samuel's Personal Portal");
+    expect(chinese("Header.brand")).toBe("Samuel 的个人门户");
+    expect(english("Nav.classicPortal")).toBe("Browse Classic Portal");
+    expect(chinese("Nav.classicPortal")).toBe("浏览传统版门户");
     expect(english("Messages.sourceCount", { count: 1 })).toBe("1 source");
     expect(english("Messages.sourceCount", { count: 2 })).toBe("2 sources");
     expect(english("Server.busy")).toBe("The service is busy. Please try again later.");

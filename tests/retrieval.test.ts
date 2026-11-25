@@ -16,7 +16,7 @@ function chunk(id: string, title: string, content: string): ReferenceChunk {
 
 describe("reference retrieval", () => {
   const corpus = [
-    chunk("portal", "关于这个参考问答门户", "这个门户提供一个 AI 对话框。访问者可以针对主人公开的 reference 提问，助手根据检索到的资料组织回答，并尽量标注来源。"),
+    chunk("portal", "关于 Samuel 的个人门户", "这是 Samuel 的个人门户，AI 对话是主要入口。访问者无需逐页浏览，可以直接询问主人公开分享的内容；助手会检索相关资料、组织回答，并尽量标注来源。"),
     chunk("privacy", "隐私与对话存储", "对话历史只保存在访问者浏览器，可以一键清空。提问会发送给模型服务。"),
     chunk("citations", "引用与资料核查", "回答应标注来源，访问者可以打开原始资料核对重要事实。"),
     chunk("unrelated", "咖啡冲煮", "水温、研磨粗细和萃取时间会影响咖啡风味。"),
@@ -29,7 +29,7 @@ describe("reference retrieval", () => {
   });
 
   it("finds a useful source for the portal suggestion", () => {
-    const result = retrieveReferences("这个门户根据什么资料回答？", corpus);
+    const result = retrieveReferences("请介绍一下这个个人门户", corpus);
     expect(result.chunks[0]?.documentId).toBe("portal");
   });
 

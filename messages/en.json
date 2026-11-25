@@ -1,15 +1,16 @@
 {
   "Metadata": {
-    "title": "Reference Q&A Portal",
-    "description": "An AI Q&A portal grounded in public references, with answers linked to verifiable sources."
+    "title": "Samuel's Personal Portal · AI Chat",
+    "description": "Explore Samuel's personal portal through AI conversation, discover publicly shared content, and check the sources behind each answer."
   },
   "Nav": {
-    "otherPortals": "Other portals"
+    "otherPortals": "Portal versions",
+    "classicPortal": "Browse Classic Portal"
   },
   "Header": {
-    "home": "Reference Q&A Portal home",
-    "brand": "Reference Q&A",
-    "brandCaption": "PERSONAL REFERENCE PORTAL"
+    "home": "Samuel's personal portal home",
+    "brand": "Samuel's Personal Portal",
+    "brandCaption": "PERSONAL PORTAL · AI CHAT"
   },
   "Health": {
     "checking": "Checking service",
@@ -29,45 +30,45 @@
   },
   "Main": {
     "history": "Conversation history",
-    "welcome": "Reference assistant welcome"
+    "welcome": "Personal portal welcome"
   },
   "Loading": {
-    "preparing": "Preparing your reference assistant…"
+    "preparing": "Opening the personal portal…"
   },
   "Welcome": {
-    "eyebrow": "Your public-reference AI assistant",
-    "title": "What would you like to explore?",
-    "description": "Ask questions about public references. I’ll organize the answers and include evidence you can verify."
+    "eyebrow": "SAMUEL'S PERSONAL PORTAL",
+    "title": "No page-hopping. Just ask.",
+    "description": "This is Samuel's personal portal, presented through conversation. Ask about the content shared here; I'll organize the answer and show its sources."
   },
   "Suggestions": {
-    "label": "Suggested questions",
-    "library": {
-      "title": "Explore the reference library",
-      "description": "Learn what the answers are based on and what the library covers",
-      "prompt": "What references does this portal use to answer questions, and which topics do they cover?"
+    "label": "Start here",
+    "portal": {
+      "title": "Meet the portal",
+      "description": "Learn what this is and what Samuel shares",
+      "prompt": "Please introduce this personal portal: what is it, and what content is currently shared here?"
     },
-    "topic": {
-      "title": "Explore a topic",
-      "description": "Organize key information from public references",
-      "prompt": "Summarize the main themes and key points in these public references, with citations."
+    "topics": {
+      "title": "Explore public content",
+      "description": "Start with a topic that interests you",
+      "prompt": "What topics and content in this personal portal are worth exploring? Introduce them based on the public material and cite sources."
     },
-    "perspectives": {
-      "title": "Compare perspectives",
-      "description": "Identify similarities and differences between viewpoints",
-      "prompt": "What different viewpoints appear in the references? Compare their similarities and differences, and cite sources for key conclusions."
+    "guide": {
+      "title": "Find answers faster",
+      "description": "Ask directly instead of browsing page by page",
+      "prompt": "I'm new to this personal portal. How can I quickly find the information that interests me? Please give practical suggestions."
     },
     "sources": {
-      "title": "Check answer sources",
-      "description": "Learn how citations lead back to the original text",
+      "title": "Check the sources",
+      "description": "See how citations lead back to the original material",
       "prompt": "How are sources cited in answers, and how can I verify an answer and its evidence?"
     }
   },
   "Service": {
-    "label": "Service details",
-    "sources": "Answers include sources",
+    "label": "How it works",
+    "sources": "Answers with verifiable sources",
     "browserHistory": "History stays in this browser",
-    "publicLibrary": "Public reference library",
-    "referenceCount": "{count, plural, one {# public reference} other {# public references}}"
+    "publicLibrary": "Public material",
+    "referenceCount": "{count, plural, one {# public source} other {# public sources}}"
   },
   "Messages": {
     "content": "Conversation",
@@ -77,7 +78,7 @@
     "userQuestion": "Your question",
     "assistantAnswer": "Assistant answer",
     "you": "You",
-    "assistant": "Reference assistant",
+    "assistant": "Portal assistant",
     "thinking": "Thinking",
     "incomplete": "Content may be incomplete",
     "actions": "Answer actions",
@@ -85,7 +86,7 @@
     "copied": "Copied",
     "copy": "Copy",
     "retry": "Regenerate",
-    "retrieving": "Searching references…",
+    "retrieving": "Searching public material…",
     "generating": "Generating answer…",
     "jump": "Jump to latest"
   },
@@ -96,9 +97,9 @@
     "dismissError": "Dismiss error",
     "generationFailed": "The answer could not be generated. Please try again later.",
     "storageWarning": "Browser storage is unavailable or full. This conversation still works, but it may be lost after a refresh.",
-    "placeholder": "Message the reference assistant…",
-    "inputLabel": "Ask about public references",
-    "publicReferences": "Public references",
+    "placeholder": "Ask me anything about this portal…",
+    "inputLabel": "Ask Samuel's personal portal",
+    "publicReferences": "Public material",
     "stop": "Stop generating",
     "stopAnnouncement": "Generation stopped. The content shown may be incomplete.",
     "send": "Send question",
@@ -106,7 +107,7 @@
     "keyboardHint": "Enter to send · Shift + Enter for a new line"
   },
   "Announcement": {
-    "retrieving": "Searching public references and generating an answer.",
+    "retrieving": "Searching the portal’s public material and generating an answer.",
     "sendFailed": "Could not send. Check your connection and try again.",
     "completed": "Answer complete. You can view its sources or ask another question.",
     "failed": "The answer failed. Your current content is preserved; you can retry.",
@@ -120,21 +121,21 @@
     "image": "Image: {alt}"
   },
   "Sources": {
-    "eyebrow": "REFERENCE CHECK",
+    "eyebrow": "SOURCE CHECK",
     "title": "Answer evidence",
     "close": "Close sources",
-    "description": "These are the reference excerpts retrieved for this answer. Check the original text; a citation does not guarantee that a conclusion is correct.",
+    "description": "These are excerpts from the public material retrieved for this answer. Check the original text; a citation does not guarantee that a conclusion is correct.",
     "locator": "Location: {locator}",
-    "open": "Open original reference"
+    "open": "Open original source"
   },
   "PrivacyDialog": {
     "eyebrow": "PRIVACY",
-    "title": "Privacy and reference boundaries",
+    "title": "Privacy and usage boundaries",
     "close": "Close privacy details",
     "history": "Conversation history is stored only in this browser and can be cleared from the page.",
     "model": "New questions and necessary context are sent to the server and then to the configured model service.",
     "sensitive": "Do not enter sensitive information such as passwords, ID numbers, or contact details.",
-    "references": "Answers are grounded in public references. When evidence is insufficient, the assistant should say so rather than guess.",
+    "references": "Answers are grounded in public material. If there is not enough evidence, the assistant says so instead of guessing.",
     "classicPortal": "Return to Classic Portal"
   },
   "Server": {
@@ -145,13 +146,13 @@
     "invalidJson": "The request body is not valid JSON.",
     "invalidMessages": "The message format is invalid.",
     "invalidQuestion": "Enter a question between 1 and 4,000 characters.",
-    "referencesUnavailable": "References are temporarily unavailable. Please try again later.",
+    "referencesUnavailable": "Public material is temporarily unavailable. Please try again later.",
     "modelUnconfigured": "The model is not configured. Please contact the portal owner.",
     "timeout": "Generation timed out. Please try again later.",
     "generationFailed": "Generation failed. Please try again later."
   },
   "Mock": {
-    "noEvidence": "The available references contain no support for this conclusion. Try rephrasing the question or adding relevant public references first.",
-    "answer": "This is a local mock answer; no external model was called.\n\nI found a reference related to “{question}”: {title}. The relevant excerpt is at “{locator}”. [{source}]\n\nAfter OPENAI_API_KEY is configured, answers will be generated from the references by the real model."
+    "noEvidence": "The available public material contains no support for this conclusion. Try rephrasing the question or adding relevant public sources first.",
+    "answer": "This is a local mock answer; no external model was called.\n\nI found a public source related to “{question}”: {title}. The relevant excerpt is at “{locator}”. [{source}]\n\nAfter OPENAI_API_KEY is configured, answers will be generated from public material by the real model."
   }
 }

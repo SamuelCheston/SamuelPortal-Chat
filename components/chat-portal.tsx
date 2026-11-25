@@ -9,9 +9,9 @@ import ArrowDownwardRounded from "@mui/icons-material/ArrowDownwardRounded";
 import ArrowUpwardRounded from "@mui/icons-material/ArrowUpwardRounded";
 import CheckRounded from "@mui/icons-material/CheckRounded";
 import CloseRounded from "@mui/icons-material/CloseRounded";
-import CompareArrowsRounded from "@mui/icons-material/CompareArrowsRounded";
 import ContentCopyRounded from "@mui/icons-material/ContentCopyRounded";
 import ExploreRounded from "@mui/icons-material/ExploreRounded";
+import ForumRounded from "@mui/icons-material/ForumRounded";
 import LinkRounded from "@mui/icons-material/LinkRounded";
 import LocalLibraryRounded from "@mui/icons-material/LocalLibraryRounded";
 import NorthEastRounded from "@mui/icons-material/NorthEastRounded";
@@ -51,8 +51,8 @@ import {
 } from "@/lib/chat-storage";
 import type { ChatUIMessage, Source } from "@/lib/types";
 
-const SUGGESTION_IDS = ["library", "topic", "perspectives", "sources"] as const;
-const PROMPT_ICONS = [LocalLibraryRounded, ExploreRounded, CompareArrowsRounded, VerifiedRounded];
+const SUGGESTION_IDS = ["portal", "topics", "guide", "sources"] as const;
+const PROMPT_ICONS = [LocalLibraryRounded, ExploreRounded, ForumRounded, VerifiedRounded];
 
 type Health = { referenceCount: number; modelMode: "mock" | "live" | "unconfigured" };
 
@@ -327,7 +327,7 @@ export function ChatPortal() {
         }}
       >
         <MuiLink href="https://classic.samuelcheston.com" underline="hover" color="text.secondary" sx={{ display: "inline-flex", alignItems: "center", gap: 0.5, fontSize: 11 }}>
-          Classic Portal <NorthEastRounded sx={{ fontSize: 14 }} />
+          {t("Nav.classicPortal")} <NorthEastRounded sx={{ fontSize: 14 }} />
         </MuiLink>
       </Box>
 
