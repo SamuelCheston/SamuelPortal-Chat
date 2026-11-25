@@ -147,6 +147,7 @@
     "invalidMessages": "消息格式无效。",
     "invalidQuestion": "请输入 1–4000 个字符的问题。",
     "referencesUnavailable": "资料暂时无法读取，请稍后再试。",
+    "skillUnavailable": "助手规则暂时不可用，请稍后再试。",
     "modelUnconfigured": "模型服务尚未配置，请联系门户主人。",
     "timeout": "生成超时，请稍后重试。",
     "generationFailed": "生成失败，请稍后重试。"

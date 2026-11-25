@@ -147,6 +147,7 @@
     "invalidMessages": "The message format is invalid.",
     "invalidQuestion": "Enter a question between 1 and 4,000 characters.",
     "referencesUnavailable": "Public material is temporarily unavailable. Please try again later.",
+    "skillUnavailable": "The assistant rules are temporarily unavailable. Please try again later.",
     "modelUnconfigured": "The model is not configured. Please contact the portal owner.",
     "timeout": "Generation timed out. Please try again later.",
     "generationFailed": "Generation failed. Please try again later."

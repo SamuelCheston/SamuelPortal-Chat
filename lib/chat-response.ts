@@ -1,7 +1,8 @@
 import { createUIMessageStream, createUIMessageStreamResponse, streamText, toUIMessageStream, convertToModelMessages } from "ai";
 import { createTranslator, type Locale } from "next-intl";
 import { getModel, isMockModelEnabled } from "@/lib/model";
-import { buildReferenceContext, SYSTEM_PROMPT } from "@/lib/prompt";
+import { buildReferenceContext, buildSystemPrompt } from "@/lib/prompt";
+import type { FixedSkill } from "@/lib/skill";
 import type { ChatUIMessage, ReferenceChunk, Source } from "@/lib/types";
 
 function mockAnswer(question: string, sources: Source[], t: ReturnType<typeof createTranslator>): string {
@@ -42,6 +43,7 @@ export async function createChatResponse({
   sources,
   locale,
   signal,
+  skill,
 }: {
   messages: ChatUIMessage[];
   question: string;
@@ -49,21 +51,20 @@ export async function createChatResponse({
   sources: Source[];
   locale: Locale;
   signal: AbortSignal;
+  skill: FixedSkill;
 }): Promise<Response> {
   const catalog = (await import(`@/messages/${locale}.json`)).default;
   const tMock = createTranslator({ locale, messages: catalog, namespace: "Mock" });
   const tServer = createTranslator({ locale, messages: catalog, namespace: "Server" });
   const generationFailed = tServer("generationFailed");
   const mock = isMockModelEnabled();
-  const model = mock || sources.length === 0 ? undefined : getModel();
+  const model = mock ? undefined : getModel();
   const history = messages.slice(0, -1);
-  const modelMessages = mock || sources.length === 0
-    ? []
-    : await convertToModelMessages(history);
+  const modelMessages = mock ? [] : await convertToModelMessages(history);
   const result = model
     ? streamText({
         model,
-        system: SYSTEM_PROMPT,
+        system: buildSystemPrompt(skill),
         messages: [
           ...modelMessages,
           { role: "user", content: buildReferenceContext(chunks, question) },

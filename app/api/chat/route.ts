@@ -3,6 +3,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { getModel } from "@/lib/model";
 import { checkRateLimit, pruneRateLimits } from "@/lib/rate-limit";
 import { loadReferenceCorpus } from "@/lib/references";
+import { loadFixedSkill } from "@/lib/skills";
 import { retrieveReferences } from "@/lib/retrieval";
 import type { ChatUIMessage } from "@/lib/types";
 
@@ -141,6 +142,13 @@ export async function POST(request: Request): Promise<Response> {
     return jsonError(t("invalidQuestion"), 400);
   }
 
+  let skill;
+  try {
+    skill = await loadFixedSkill();
+  } catch {
+    return jsonError(t("skillUnavailable"), 500);
+  }
+
   let corpus;
   try {
     corpus = await loadReferenceCorpus();
@@ -149,7 +157,7 @@ export async function POST(request: Request): Promise<Response> {
   }
   const { chunks, sources } = retrieveReferences(question, corpus);
 
-  if (process.env.MOCK_MODEL !== "true" && sources.length > 0) {
+  if (process.env.MOCK_MODEL !== "true") {
     try {
       getModel();
     } catch {
@@ -162,7 +170,7 @@ export async function POST(request: Request): Promise<Response> {
   const signal = AbortSignal.any([request.signal, timeoutController.signal]);
   activeRequests += 1;
   try {
-    const response = await createChatResponse({ messages, question, chunks, sources, locale, signal });
+    const response = await createChatResponse({ messages, question, chunks, sources, locale, signal, skill });
     return trackCompletion(response, () => {
       activeRequests = Math.max(0, activeRequests - 1);
       clearTimeout(timeout);
